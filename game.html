@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta Rusa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <!-- Contenedor de la tabla -->
+        <div class="left-container">
+            <!-- Tablero del juego -->
+            <div class="table-container">
+                <div class="table"></div>
+            </div>
+        </div>
+
+        <!-- Contenedor de información del jugador y botón de cambio de turno -->
+        <div class="right-container">
+            <!-- Contenedor de información del jugador -->
+            <div class="top-right">
+                <div class="player-info">
+                    <h2>Jugador 1</h2>
+                    <div class="hearts">
+                        <!-- Iconos de corazón para representar las vidas del jugador -->
+                        <span class="heart"></span>
+                        <span class="heart"></span>
+                        <span class="heart"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contenedor del botón de cambio de turno -->
+            <div class="bottom-right">
+                <div class="turn-button-container">
+                    <button id="turnButton">Cambiar Turno</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
