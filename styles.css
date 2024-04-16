@@ -108,3 +108,17 @@ button:hover {
         transform: rotate(180deg);
     }
 }
+
+.table{
+    position: relative;
+}
+
+/* Estilos para el arma */
+.gun {
+    position: absolute;
+    width: 100px; /* Tamaño del arma */
+    height: 100px;
+    top: calc(50% - 40px); /* 50% de la altura menos la mitad del tamaño del arma */
+    left: calc(50% - 40px); 
+}
+

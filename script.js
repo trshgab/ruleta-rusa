@@ -61,3 +61,18 @@ function changeTurn() {
         table.classList.remove('rotate-animation');
     }, 1000);
 }
+
+// Función para apuntar el arma hacia arriba
+function pointUp() {
+    const gun = document.querySelector('.gun');
+    gun.style.transform = 'rotate(0deg)';
+}
+
+// Función para apuntar el arma hacia abajo
+function pointDown() {
+    const gun = document.querySelector('.gun');
+    gun.style.transform = 'rotate(180deg)';
+}
+
+
+
