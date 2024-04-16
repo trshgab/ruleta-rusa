@@ -80,7 +80,7 @@ body {
     height: 100%; /* Ajusta la altura del contenedor */
 }
 
-.turn-button-container button {
+button {
     background-color: black;
     color: white;
     border: 2px solid white;
@@ -90,7 +90,21 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-.turn-button-container button:hover {
+button:hover {
     background-color: white;
     color: black;
+}
+
+/* Agregar la animación de rotación */
+.rotate-animation {
+    animation: rotateTable 1s ease-in-out forwards;
+}
+
+@keyframes rotateTable {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
 }

@@ -47,6 +47,7 @@
         .letters {
             display: flex;
             justify-content: center;
+            margin: 0 60px;
         }
 
         .letter-input {
@@ -57,19 +58,9 @@
             margin: 0 5px;
         }
 
-        button {
-            background-color: black;
-            color: white;
-            border: 2px solid white;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        button:hover {
-            background-color: white;
-            color: black;
+        .name-input {
+            width: 150px; /* Ajusta el ancho del campo de entrada de texto */
+            margin-bottom: 10px; /* Añade margen inferior */
         }
     </style>
 </head>
@@ -79,25 +70,13 @@
         <div class="player-names">
             <div class="player-input" id="player1">
                 <span class="label">Jugador 1:</span>
-                <div class="letters">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                </div>
+                <!-- Cambiamos los campos de letras por campos de entrada de texto normales -->
+                <input type="text" class="name-input" id="player1Name" placeholder="Nombre del Jugador 1">
             </div>
             <div class="player-input" id="player2">
                 <span class="label">Jugador 2:</span>
-                <div class="letters">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                    <input type="text" maxlength="1" class="letter-input" placeholder=" ">
-                </div>
+                <!-- Cambiamos los campos de letras por campos de entrada de texto normales -->
+                <input type="text" class="name-input" id="player2Name" placeholder="Nombre del Jugador 2">
             </div>
         </div>
         <button onclick="saveNames()">Comenzar</button>

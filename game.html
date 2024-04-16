@@ -6,7 +6,7 @@
     <title>Ruleta Rusa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="loadNames()">
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Contenedor de la tabla -->
@@ -20,9 +20,9 @@
         <!-- Contenedor de información del jugador y botón de cambio de turno -->
         <div class="right-container">
             <!-- Contenedor de información del jugador -->
-            <div class="top-right">
+            <div class="top-right" id="playerInfo">
                 <div class="player-info">
-                    <h2>Jugador 1</h2>
+                    <h2 id="currentPlayerName">Jugador 1</h2>
                     <div class="hearts">
                         <!-- Iconos de corazón para representar las vidas del jugador -->
                         <span class="heart"></span>
@@ -35,7 +35,7 @@
             <!-- Contenedor del botón de cambio de turno -->
             <div class="bottom-right">
                 <div class="turn-button-container">
-                    <button id="turnButton">Cambiar Turno</button>
+                    <button id="turnButton" onclick="changeTurn()">Cambiar Turno</button>
                 </div>
             </div>
         </div>

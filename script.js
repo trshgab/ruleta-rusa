@@ -5,63 +5,59 @@ function startGame() {
 
 // Función para guardar los nombres de los jugadores y comenzar el juego
 function saveNames() {
-    let player1Name = '';
-    let player2Name = '';
-
     // Obtener los nombres de los jugadores
-    const player1Letters = document.querySelectorAll('#player1 .letter-input');
-    const player2Letters = document.querySelectorAll('#player2 .letter-input');
+    const player1Name = document.getElementById("player1Name").value;
+    const player2Name = document.getElementById("player2Name").value;
 
-    player1Letters.forEach(letter => player1Name += letter.value);
-    player2Letters.forEach(letter => player2Name += letter.value);
-
-    // Validar que los nombres tengan entre 1 y 6 caracteres
-    if (player1Name.length >= 1 && player1Name.length <= 6 && player2Name.length >= 1 && player2Name.length <= 6) {
+    // Validar que los nombres no estén vacíos
+    if (player1Name.trim() !== "" && player2Name.trim() !== "") {
         // Guardar los nombres en el almacenamiento local
         localStorage.setItem("player1Name", player1Name);
         localStorage.setItem("player2Name", player2Name);
         // Redireccionar al juego
         window.location.href = "game.html";
     } else {
-        alert("Los nombres deben tener entre 1 y 6 caracteres.");
+        alert("Por favor, introduce un nombre para cada jugador.");
     }
 }
 
-// Función para cambiar el turno con animación infinita
+// Función para cargar los nombres de los jugadores
+function loadNames() {
+    // Obtener los nombres de los jugadores del almacenamiento local
+    const player1Name = localStorage.getItem("player1Name");
+    const player2Name = localStorage.getItem("player2Name");
+
+    // Mostrar los nombres en la página
+    document.getElementById("currentPlayerName").innerText = player1Name;
+}
+
+
+
+
+// Función para cambiar el turno con animación
 function changeTurn() {
-    // Girar la mesa y los nombres de los jugadores
-    const table = document.querySelector('.table');
-    const playerTop = document.querySelector('.player-top');
-    const playerBottom = document.querySelector('.player-bottom');
-
-    table.style.transition = 'transform 1s ease-in-out';
-    table.style.transform = 'rotate(180deg)';
-    playerTop.style.transition = 'transform 1s ease-in-out';
-    playerTop.style.transform = 'rotate(180deg)';
-    playerBottom.style.transition = 'transform 1s ease-in-out';
-    playerBottom.style.transform = 'rotate(180deg)';
-
-    // Lógica para cambiar los nombres de los jugadores
+    // Obtener los nombres de los jugadores desde el almacenamiento local
     let player1Name = localStorage.getItem("player1Name");
     let player2Name = localStorage.getItem("player2Name");
 
+    // Girar la mesa y los nombres de los jugadores
+    const table = document.querySelector('.table');
+    const playerInfo = document.querySelector('.player-info');
+
+    // Agregar clase de animación para girar la mesa
+    table.classList.add('rotate-animation');
+
+    // Lógica para cambiar los nombres de los jugadores
     const temp = player1Name;
     player1Name = player2Name;
     player2Name = temp;
     localStorage.setItem("player1Name", player1Name);
     localStorage.setItem("player2Name", player2Name);
 
-    // Reiniciar la animación después de 1 segundo para hacerla infinita
+    // Actualizar los nombres en la página después de completar la animación
     setTimeout(() => {
-        table.style.transition = 'none';
-        table.style.transform = 'rotate(0deg)';
-        playerTop.style.transition = 'none';
-        playerTop.style.transform = 'rotate(0deg)';
-        playerBottom.style.transition = 'none';
-        playerBottom.style.transform = 'rotate(0deg)';
-
-        // Actualizar los nombres en la página
-        document.getElementById("player1Name").innerText = player1Name;
-        document.getElementById("player2Name").innerText = player2Name;
+        playerInfo.querySelector('h2').innerText = player1Name;
+        // Remover la clase de animación después de completar la rotación
+        table.classList.remove('rotate-animation');
     }, 1000);
 }
